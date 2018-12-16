@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using BestHTTP;
 using System;
 using m = Model;
@@ -8,6 +9,7 @@ using LitJson;
 
 public class FortniteStatsManager : MonoBehaviour {
 
+	public InputField userIDInputField;
 	private string userId;
 
 	// Use this for initialization
@@ -22,16 +24,16 @@ public class FortniteStatsManager : MonoBehaviour {
 
 	// GETUSERID
 	public void GetUserId() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=Ninja";
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=" + userIDInputField.text;
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetUserIdFinished);
 		request.Send ();
 	}
 
 	void OnRequestGetUserIdFinished(HTTPRequest request, HTTPResponse response)
 	{
-		Debug.Log(response.DataAsText);
 		m.UserId userIdResponse = JsonMapper.ToObject<m.UserId>(response.DataAsText);
 		this.userId = userIdResponse.uid;
+		Debug.Log(this.userId);
 	}
 
 	// GETSTATS
