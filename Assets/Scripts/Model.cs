@@ -28,14 +28,28 @@ public class Model : MonoBehaviour {
 	}
 
 	public class Stats {
+		// SOLO STATS
 		public Int32 kills_solo { get; set; }
 		public Int32 matchesplayed_solo { get; set; }
 		public Double winrate_solo { get; set; }
 		public Int32 score_solo { get; set; }
+		// DUO STATS
+		public Int32 kills_duo { get; set; }
+		public Int32 matchesplayed_duo { get; set; }
+		public Double winrate_duo { get; set; }
+		public Int32 score_duo { get; set; }
+		// SQUAD STATS
+		public Int32 kills_squad { get; set; }
+		public Int32 matchesplayed_squad { get; set; }
+		public Double winrate_squad { get; set; }
+		public Int32 score_squad { get; set; }
 	}
 
 	public class Totals {
 		public Int32 kills { get; set; }
+		public Int32 wins { get; set; }
+		public Double winrate { get; set; }
+		public Int32 score { get; set; }
 	}	
 
 	public class UserStats {

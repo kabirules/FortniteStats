@@ -38,7 +38,7 @@ public class FortniteStatsManager : MonoBehaviour {
 
 	// GETSTATS
 	public void GetStats() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?user_id=4735ce9132924caf8a5b17789b40f79c&platform=pc&window=alltime";
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?user_id=" + this.userId + "&platform=pc&window=alltime";
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetStatsFinished);
 		// request.SetHeader("Authorization","ea1e9f837f0a6b6679e4b90985cf5302");
 		request.Send ();
