@@ -10,6 +10,16 @@ using LitJson;
 public class FortniteStatsManager : MonoBehaviour {
 
 	public InputField userIDInputField;
+
+	public Text kills_solo;
+	public Text matchesplayed_solo;
+	public Text winrate_solo;
+	public Text score_solo;
+
+	public Text kills_duo;
+	public Text matchesplayed_duo;
+	public Text winrate_duo;
+	public Text score_duo;	
 	private string userId;
 
 	// Use this for initialization
@@ -51,5 +61,15 @@ public class FortniteStatsManager : MonoBehaviour {
 		Debug.Log(userStatsResponse.username);
 		Debug.Log(userStatsResponse.stats.kills_solo);
 		Debug.Log(userStatsResponse.totals.kills);
+
+		kills_solo.text = userStatsResponse.stats.kills_solo.ToString();
+		matchesplayed_solo.text = userStatsResponse.stats.matchesplayed_solo.ToString();
+		winrate_solo.text = userStatsResponse.stats.winrate_solo.ToString();
+		score_solo.text = userStatsResponse.stats.score_solo.ToString();
+
+		kills_duo.text = userStatsResponse.stats.kills_duo.ToString();
+		matchesplayed_duo.text = userStatsResponse.stats.matchesplayed_duo.ToString();
+		winrate_duo.text = userStatsResponse.stats.winrate_duo.ToString();
+		score_duo.text = userStatsResponse.stats.score_duo.ToString();		
 	}	
 }
