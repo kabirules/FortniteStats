@@ -20,6 +20,12 @@ public class FortniteStatsManager : MonoBehaviour {
 	public Text matchesplayed_duo;
 	public Text winrate_duo;
 	public Text score_duo;	
+
+	public Text kills_squad;
+	public Text matchesplayed_squad;
+	public Text winrate_squad;
+	public Text score_squad;		
+
 	private string userId;
 
 	// Use this for initialization
@@ -70,6 +76,11 @@ public class FortniteStatsManager : MonoBehaviour {
 		kills_duo.text = userStatsResponse.stats.kills_duo.ToString();
 		matchesplayed_duo.text = userStatsResponse.stats.matchesplayed_duo.ToString();
 		winrate_duo.text = userStatsResponse.stats.winrate_duo.ToString();
-		score_duo.text = userStatsResponse.stats.score_duo.ToString();		
+		score_duo.text = userStatsResponse.stats.score_duo.ToString();
+
+		kills_squad.text = userStatsResponse.stats.kills_squad.ToString();
+		matchesplayed_squad.text = userStatsResponse.stats.matchesplayed_squad.ToString();
+		winrate_squad.text = userStatsResponse.stats.winrate_squad.ToString();
+		score_squad.text = userStatsResponse.stats.score_squad.ToString();		
 	}	
 }
