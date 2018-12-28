@@ -47,7 +47,7 @@ public class Model : MonoBehaviour {
 
 	public class Totals {
 		public Int32 kills { get; set; }
-		public Int32 wins { get; set; }
+		public Int32 matchesplayed { get; set; }
 		public Double winrate { get; set; }
 		public Int32 score { get; set; }
 	}	

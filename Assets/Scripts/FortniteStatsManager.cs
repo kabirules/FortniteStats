@@ -24,7 +24,12 @@ public class FortniteStatsManager : MonoBehaviour {
 	public Text kills_squad;
 	public Text matchesplayed_squad;
 	public Text winrate_squad;
-	public Text score_squad;		
+	public Text score_squad;
+
+	public Text kills_totals;
+	public Text matchesplayed_totals;
+	public Text winrate_totals;
+	public Text score_totals;	
 
 	private string userId;
 
@@ -81,6 +86,11 @@ public class FortniteStatsManager : MonoBehaviour {
 		kills_squad.text = userStatsResponse.stats.kills_squad.ToString();
 		matchesplayed_squad.text = userStatsResponse.stats.matchesplayed_squad.ToString();
 		winrate_squad.text = userStatsResponse.stats.winrate_squad.ToString();
-		score_squad.text = userStatsResponse.stats.score_squad.ToString();		
+		score_squad.text = userStatsResponse.stats.score_squad.ToString();
+
+		kills_totals.text = userStatsResponse.totals.kills.ToString();
+		matchesplayed_totals.text = userStatsResponse.totals.matchesplayed.ToString();
+		winrate_totals.text = userStatsResponse.totals.winrate.ToString();
+		score_totals.text = userStatsResponse.totals.score.ToString();				
 	}	
 }
