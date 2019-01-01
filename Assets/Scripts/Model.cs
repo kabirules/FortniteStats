@@ -111,5 +111,59 @@ public class Model : MonoBehaviour {
 		}		
 		 */
 	}
+	public class StoreItems {
+		public string date_layout { get; set; }
+		public string date { get; set; }
+		public string vbucks { get; set; }
+		public Item[] items  { get; set; }
+	}
 
+	public class Items {
+		public string itemid { get; set; }
+		public string name { get; set; }
+		public string cost { get; set; }
+		public Item item { get; set; }
+	}
+
+	public class Item {	
+		public string image { get; set; }
+		public string captial { get; set; }
+		public string rarity { get; set; }
+	}
+	/*
+	{
+		"date_layout": "day-month-year",
+		"lastupdate": 1546301124,
+		"language": "en",
+		"date": "01-01-19",
+		"rows": 10,
+		"vbucks": "https://fortnite-public-files.theapinetwork.com/fortnite-vbucks-icon.png",
+		"items": [
+			{
+				"itemid": "bac52c7-d6c39d5-ec60147-709d929",
+				"name": "DJ Bop",
+				"cost": "2000",
+				"featured": 1,
+				"refundable": 1,
+				"lastupdate": 1546301124,
+				"youtube": null,
+				"item": {
+					"image": "https://fortnite-public-files.theapinetwork.com/outfit/20ed4cc30bb4976f25cde8d0bc136288.png",
+					"images": {
+						"transparent": "https://fortnite-public-files.theapinetwork.com/outfit/20ed4cc30bb4976f25cde8d0bc136288.png",
+						"background": "https://fortnite-public-files.theapinetwork.com/image/bac52c7-d6c39d5-ec60147-709d929.png",
+						"information": "https://fortnite-public-files.theapinetwork.com/image/bac52c7-d6c39d5-ec60147-709d929/item.png",
+						"featured": {
+							"transparent": "https://fortnite-public-files.theapinetwork.com/featured/bac52c7-d6c39d5-ec60147-709d929.png"
+						}
+					},
+					"captial": "outfit",
+					"type": "outfit",
+					"rarity": "legendary",
+					"obtained_type": "vbucks"
+				}
+			},
+		]
+	}
+	*/
 }
