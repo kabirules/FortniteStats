@@ -115,7 +115,7 @@ public class Model : MonoBehaviour {
 		public string date_layout { get; set; }
 		public string date { get; set; }
 		public string vbucks { get; set; }
-		public Item[] items  { get; set; }
+		public Items[] items  { get; set; }
 	}
 
 	public class Items {

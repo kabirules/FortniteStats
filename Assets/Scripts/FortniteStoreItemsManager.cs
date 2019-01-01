@@ -6,8 +6,13 @@ using BestHTTP;
 using System;
 using m = Model;
 using LitJson;
+using UnityEngine.Networking;
 
 public class FortniteStoreItemsManager : MonoBehaviour {
+
+	public RawImage rawImage1;
+	public RawImage rawImage2;
+	public RawImage rawImage3;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +34,19 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	{
 		m.StoreItems storeItemsResponse = JsonMapper.ToObject<m.StoreItems>(response.DataAsText);
 		Debug.Log(storeItemsResponse.date);
+		Debug.Log(storeItemsResponse.items[0].item.image);
+		StartCoroutine(setImage(storeItemsResponse.items[0].item.image, rawImage1));
+		StartCoroutine(setImage(storeItemsResponse.items[1].item.image, rawImage2));
+		StartCoroutine(setImage(storeItemsResponse.items[2].item.image, rawImage3));
 	}
+
+	IEnumerator setImage(string url, RawImage rawImage) {
+		UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+		yield return request.SendWebRequest();
+		if (request.isNetworkError || request.isHttpError) 
+			Debug.Log(request.error);
+		else
+			rawImage.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
+		}	
 
 }
