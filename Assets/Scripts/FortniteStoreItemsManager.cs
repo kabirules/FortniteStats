@@ -16,7 +16,9 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		rawImage1.color = Color.black;
+		rawImage2.color = Color.black;
+		rawImage3.color = Color.black;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +37,7 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 		m.StoreItems storeItemsResponse = JsonMapper.ToObject<m.StoreItems>(response.DataAsText);
 		Debug.Log(storeItemsResponse.date);
 		Debug.Log(storeItemsResponse.items[0].item.image);
+		Debug.Log(storeItemsResponse.items.Length);
 		StartCoroutine(setImage(storeItemsResponse.items[0].item.image, rawImage1));
 		StartCoroutine(setImage(storeItemsResponse.items[1].item.image, rawImage2));
 		StartCoroutine(setImage(storeItemsResponse.items[2].item.image, rawImage3));
@@ -47,6 +50,7 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 			Debug.Log(request.error);
 		else
 			rawImage.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
+			rawImage.color = Color.white;
 		}	
 
 }
