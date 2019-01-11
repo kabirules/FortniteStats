@@ -27,7 +27,7 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	}
 
 	public void GetStoreItems() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/store/get";
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get";
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetStoreItemsFinished);
 		request.Send ();
 	}
