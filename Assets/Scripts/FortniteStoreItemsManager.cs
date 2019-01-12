@@ -10,15 +10,55 @@ using UnityEngine.Networking;
 
 public class FortniteStoreItemsManager : MonoBehaviour {
 
+	private Int32 MAX_ITEMS = 8;
 	public RawImage rawImage1;
 	public RawImage rawImage2;
 	public RawImage rawImage3;
+	public RawImage rawImage4;
+	public RawImage rawImage5;
+	public RawImage rawImage6;
+	public RawImage rawImage7;
+	public RawImage rawImage8;
+	private List<RawImage> rawImagesArray = new List<RawImage>();
+
+	public Text text1;
+	public Text text2;
+	public Text text3;
+	public Text text4;
+	public Text text5;
+	public Text text6;
+	public Text text7;
+	public Text text8;
+	private List<Text> textsArray = new List<Text>();
+
 
 	// Use this for initialization
 	void Start () {
 		rawImage1.color = Color.black;
 		rawImage2.color = Color.black;
 		rawImage3.color = Color.black;
+		rawImage4.color = Color.black;
+		rawImage5.color = Color.black;
+		rawImage6.color = Color.black;
+		rawImage7.color = Color.black;
+		rawImage8.color = Color.black;
+		rawImagesArray.Add(rawImage1);
+		rawImagesArray.Add(rawImage2);
+		rawImagesArray.Add(rawImage3);
+		rawImagesArray.Add(rawImage4);
+		rawImagesArray.Add(rawImage5);
+		rawImagesArray.Add(rawImage6);
+		rawImagesArray.Add(rawImage7);
+		rawImagesArray.Add(rawImage8);
+		textsArray.Add(text1);
+		textsArray.Add(text2);
+		textsArray.Add(text3);
+		textsArray.Add(text4);
+		textsArray.Add(text5);
+		textsArray.Add(text6);
+		textsArray.Add(text7);
+		textsArray.Add(text8);
+		this.GetStoreItems();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +67,7 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	}
 
 	public void GetStoreItems() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get";
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/store/get";
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetStoreItemsFinished);
 		request.Send ();
 	}
@@ -38,9 +78,10 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 		Debug.Log(storeItemsResponse.date);
 		Debug.Log(storeItemsResponse.items[0].item.image);
 		Debug.Log(storeItemsResponse.items.Length);
-		StartCoroutine(setImage(storeItemsResponse.items[0].item.image, rawImage1));
-		StartCoroutine(setImage(storeItemsResponse.items[1].item.image, rawImage2));
-		StartCoroutine(setImage(storeItemsResponse.items[2].item.image, rawImage3));
+		for (int i=0; i < storeItemsResponse.items.Length && i < MAX_ITEMS; i++) {
+			StartCoroutine(setImage(storeItemsResponse.items[i].item.image, rawImagesArray[i]));
+			textsArray[i].text = storeItemsResponse.items[i].name;
+		}
 	}
 
 	IEnumerator setImage(string url, RawImage rawImage) {
