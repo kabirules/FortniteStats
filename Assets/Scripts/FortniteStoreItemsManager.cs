@@ -31,6 +31,8 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	public Text text8;
 	private List<Text> textsArray = new List<Text>();
 
+	private List<m.Items> itemsArray = new List<m.Items>();
+
 
 	// Use this for initialization
 	void Start () {
@@ -67,7 +69,8 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	}
 
 	public void GetStoreItems() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/store/get";
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get";
+		//string url = "https://fortnite-public-api.theapinetwork.com/prod09/store/get";
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetStoreItemsFinished);
 		request.Send ();
 	}
@@ -79,6 +82,7 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 		Debug.Log(storeItemsResponse.items[0].item.image);
 		Debug.Log(storeItemsResponse.items.Length);
 		for (int i=0; i < storeItemsResponse.items.Length && i < MAX_ITEMS; i++) {
+			itemsArray.Add(storeItemsResponse.items[i]);
 			StartCoroutine(setImage(storeItemsResponse.items[i].item.image, rawImagesArray[i]));
 			textsArray[i].text = storeItemsResponse.items[i].name;
 		}
@@ -87,11 +91,18 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	IEnumerator setImage(string url, RawImage rawImage) {
 		UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
 		yield return request.SendWebRequest();
-		if (request.isNetworkError || request.isHttpError) 
+		if (request.isNetworkError || request.isHttpError) {
 			Debug.Log(request.error);
-		else
+		} else {
 			rawImage.texture = ((DownloadHandlerTexture) request.downloadHandler).texture;
 			rawImage.color = Color.white;
-		}	
+		}
+	}
+
+	public void AssignItem(Int32 itemNumber) {
+		PlayerPrefs.SetString("ITEM_NAME", itemsArray[itemNumber].name);
+		PlayerPrefs.SetString("ITEM_URL", itemsArray[itemNumber].item.image);
+		Debug.Log(itemsArray[itemNumber].name);
+	}	
 
 }
