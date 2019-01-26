@@ -910,6 +910,7 @@
      <Compile Include="Assets\Scripts\FortniteStoreItemsManager.cs" />
      <Compile Include="Assets\Scripts\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Model.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement.cs" />
      <None Include="Assets\Best HTTP (Pro)\BestHTTP\SecureProtocol\License.txt" />
      <None Include="Assets\Best HTTP (Pro)\link_android_subset.xml" />
      <None Include="Assets\Best HTTP (Pro)\ReleaseNotes.txt" />

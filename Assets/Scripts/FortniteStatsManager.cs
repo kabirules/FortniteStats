@@ -55,6 +55,7 @@ public class FortniteStatsManager : MonoBehaviour {
 		m.UserId userIdResponse = JsonMapper.ToObject<m.UserId>(response.DataAsText);
 		this.userId = userIdResponse.uid;
 		Debug.Log(this.userId);
+		GetStats();
 	}
 
 	// GETSTATS
