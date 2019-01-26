@@ -7,6 +7,7 @@ using System;
 using m = Model;
 using LitJson;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class FortniteStoreItemsManager : MonoBehaviour {
 
@@ -69,8 +70,14 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	}
 
 	public void GetStoreItems() {
-		string url = "https://fortnite-public-api.theapinetwork.com/prod09/upcoming/get";
-		//string url = "https://fortnite-public-api.theapinetwork.com/prod09/store/get";
+		string sceneName = SceneManager.GetActiveScene().name;
+		string url = "https://fortnite-public-api.theapinetwork.com/prod09/";
+		// Call different url's depending on scene
+		if (sceneName == "StoreItems") {
+			url = url + "store/get";
+		} else { // "UpcomingItems"
+			url = url + "upcoming/get";
+		}
 		HTTPRequest request = new HTTPRequest (new Uri (url), OnRequestGetStoreItemsFinished);
 		request.Send ();
 	}
@@ -102,6 +109,10 @@ public class FortniteStoreItemsManager : MonoBehaviour {
 	public void AssignItem(Int32 itemNumber) {
 		PlayerPrefs.SetString("ITEM_NAME", itemsArray[itemNumber].name);
 		PlayerPrefs.SetString("ITEM_URL", itemsArray[itemNumber].item.image);
+		PlayerPrefs.SetString("COST", itemsArray[itemNumber].cost);
+		PlayerPrefs.SetString("TYPE", itemsArray[itemNumber].item.type);
+		PlayerPrefs.SetString("RARITY", itemsArray[itemNumber].item.rarity);
+		SceneManager.LoadScene("Item");
 		Debug.Log(itemsArray[itemNumber].name);
 	}	
 

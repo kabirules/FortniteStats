@@ -133,6 +133,7 @@ public class Model : MonoBehaviour {
 	public class Item {	
 		public string image { get; set; }
 		public string captial { get; set; }
+		public string type { get; set; }
 		public string rarity { get; set; }
 	}
 	/*

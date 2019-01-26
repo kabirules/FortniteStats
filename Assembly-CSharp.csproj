@@ -908,6 +908,7 @@
      <Compile Include="Assets\Best HTTP (Pro)\Examples\Websocket\WebSocketSample.cs" />
      <Compile Include="Assets\Scripts\FortniteStatsManager.cs" />
      <Compile Include="Assets\Scripts\FortniteStoreItemsManager.cs" />
+     <Compile Include="Assets\Scripts\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Model.cs" />
      <None Include="Assets\Best HTTP (Pro)\BestHTTP\SecureProtocol\License.txt" />
      <None Include="Assets\Best HTTP (Pro)\link_android_subset.xml" />
