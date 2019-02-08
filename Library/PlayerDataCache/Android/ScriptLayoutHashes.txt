@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-E:/Disco F/Unity/FortniteStats/BattleRoyaleStatus.apk
+E:/Disco F/Unity/FortniteStats/BattleRoyaleStats.apk
 SceneListBegin?
 Assets/Scenes/Stats.unity
 Assets/Scenes/StoreItems.unity
@@ -185,3 +185,5 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2c126d4195dcc24ba2a5cfaaa3f90b28 Assembly-CSharp.dll:.ItemManager
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:BestHTTP.Examples.CacheMaintenanceSample
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.SimpleStreamingSample
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:GoogleMobileAds.Common.MobileAdsEventExecutor
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.AdMobManager
